@@ -1,10 +1,6 @@
-# VScode+스프링부트(가제)
+# VScode로 시작하는 스프링부트
 
 ## 들어가기에 앞서
-
-Java 개발자에게 eclipse보다 좋은 IDE는 없을 것이다. 하지만 담배타임을 유발하는 초기 로딩 속도, 프로젝트 크기와 비례하는 강제종료 횟수, 메모장과 다름 없는 프론트 개발 환경은 주기적으로 나를 괴롭힌다.
-
-취향에 따라 InteliJ가 이클립스에 비해 훨씬 좋다고 할 수 있겠지만, 이클립스를 사용하던 개발자라면 새로운 IDE 적응을 위해 생기는 새로운 러닝커브와 비용문제 그리고 여전히 무겁다는 문제가 있다.
 
 최근 간단한 Java소스를 VScode로 작성하고 있다. 처음에는 신기해서 사용했지만, 불과 몇 개월 동안 아주 편해진 것이 느껴진다. 물론 태생적으로 IDE가 아니기 때문에 이클립스나 인텔리J처럼 모든 것을 다 해주지는 못한다. 하지만 간단한 코드 작성이나 테스트에는 무리가 없다고 느껴진다.
 
@@ -48,13 +44,15 @@ Java 개발자에게 eclipse보다 좋은 IDE는 없을 것이다. 하지만 담
 
 위의 항목들은 스프링 부트에서 설명하는 기능들이다.
 
-VS 코드를 사용한 스프링 프로젝트의 걸림돌인 WAR 빌드 및 배포를 수동으로 진행하여야 한다는 점이 해결된다.
+VS 코드를 사용해서 스프링 레거시 프로젝트를 만들 경우 WAR 빌드 및 배포를 수동으로 진행하여야 한다는 단점이 있다.
+
+스프링 부트를 사용하면 이런 문제가 해결된다.
 
 또한, 기존 스프링 프로젝트를 위해 필요했던 옵션 설정들을 자동으로 해주기 때문에 초기 설정이 잘못돼서 구동이 제대로 안되는 일이 거의 없어진다.
 
 ## 프로젝트 생성
 
-`ctrl+shift+p` 를 눌러 커맨드 팔레트를 호출 한 뒤 Spring Initializr를 실행시킨다.
+상단 메뉴에서 `View>Commend Palette...` 선택 또는 `ctrl+shift+p` 를 눌러 커맨드 팔레트를 호출 한 뒤 Spring Initializr를 실행시킨다.
 
 ![Spring Initilizr 실행](img/create-project-01.png)
 
@@ -77,6 +75,8 @@ VS 코드를 사용한 스프링 프로젝트의 걸림돌인 WAR 빌드 및 배
 `src/main/resources/application.properties` 에 다음과 같은 설정을 추가한다.
 
 ![라이브리로드 추가](img/create-project-04.png)
+
+> Spring Configuration Processor 를 추가시키면 `Ctrl + space` 를 이용하여 지원을 받을 수 있다.
 
 프로젝트를 실행 시킨 뒤 `localhost:8080` 으로 접근 혹은 대쉬보드의 프로젝트를 우클릭하여 `Open In Brower` 를 선택한다.
 
@@ -101,3 +101,31 @@ VS 코드를 사용한 스프링 프로젝트의 걸림돌인 WAR 빌드 및 배
 ![index 확인](img/create-index-02.png)
 
 ## Rest Controller 생성
+
+아래의 경로에 컨트롤러를 생성해보자
+
+![demo-application](img/rest-controller01.png)
+
+> `controller` 패키지를 꼭 생성할 필요는 없다. 하지만, 지금은 반드시 `demo` 아래에 컨트롤러를 생성해야 한다.
+
+![demo-application](img/rest-controller02.png)
+
+간단한 REST 컨트롤러를 구현했다.
+
+![demo-application](img/rest-controller03.png)
+
+잘 연결된다.
+
+![demo-application](img/rest-controller04.png)
+
+매개변수도 잘 동작한다.
+
+## 마치며..
+
+이렇게 기본적인 정적 페이지와 컨트롤러가 완성됐다.
+
+이래도 되나 싶을 정도로 간단하다.
+
+IDE처럼 무겁지 않기 때문에 앞으로도 가벼운 테스트에 계속 사용할 것 같다.
+
+그동안 IDE로딩과 초기세팅 및 빌드가 두려워 이클립스를 켜지 않고 JS에 손을 대는 일이 많았는데, 스프링도 JS처럼 간편하게 구동할 수 있다는데 큰 의의가 있다고 생각된다.
